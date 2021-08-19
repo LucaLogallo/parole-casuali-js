@@ -31,43 +31,39 @@ risoluzione:
 
 */
 
-const axios = require('axios');
+/* const axios = require('axios'); */
 
-
-$(function(){
- /*  const axios = require('axios'); */
- //importo axios una volta che l'ho installato con npm install axios. nel const ho il default e il nome axios in modo tale che poi potrò richiamare axios semplicemente scrivendo axios.{metodo}
-  const axios = require('axios').default;
+$(function () {
+  /*  const axios = require('axios'); */
+  //importo axios una volta che l'ho installato con npm install axios. nel const ho il default e il nome axios in modo tale che poi potrò richiamare axios semplicemente scrivendo axios.{metodo}
+  /*  const axios = require('axios').default; */
 
   var arrParole = [];
-  
-  $('#numeroParole').click(function(){
+  var c = 'ciao';
+  $('#numeroParole').click(function () {
     let n = $('#np').val();
 
-    if(n <= 0){
-      printOutput("ERRORE: il numero dev'essere maggiore di 0",'#result');
-    }else{
-      for(let i = 0; i<n; i++){
-        axios.get('https://flynn.boolean.careers/exercises/api/random/word](https://flynn.boolean.careers/exercises/api/random/word').then(resp => {
-          console.log(resp.data);
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        });
-      }
-      printOutput(n,'#result');
-    }
+    if (n <= 0) {
+      printOutput("ERRORE: il numero dev'essere maggiore di 0", '#result');
+    } else {
+      for (let i = 0; i < n; i++) {
+      arrParole.push(c);
+      console.log(arrParole); 
+    }}
+    let a = arrParole.join(" ");
+    arrParole = [];
+    printOutput(a, '#result');
+    a = '';
 
-     /* printOutput('','#np');
+    /* printOutput('','#np');
 
-      */
+     */
   })
 
 
   /* funzioni */
-  function printOutput(text, target){
-  $(target).text(text);
+  function printOutput(text, target) {
+    $(target).text(text);
   }
 
 })
